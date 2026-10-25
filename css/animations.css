@@ -1,0 +1,48 @@
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0);opacity:0}10%{opacity:.8}100%{transform:translateY(110vh) rotate(540deg) translateX(80px);opacity:0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes glow{0%,100%{box-shadow:0 0 30px rgba(142,240,74,.3)}50%{box-shadow:0 0 60px rgba(142,240,74,.7)}}
+@keyframes shine{to{background-position:-200% 0}}
+@keyframes pop{from{opacity:0;transform:translateY(40px) scale(.94);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes introCurtain{0%,99%{opacity:1;visibility:visible}100%{opacity:1;visibility:hidden}}
+@keyframes introLogo{0%{opacity:0;transform:scale(.65) rotate(-8deg)}18%{opacity:1;transform:scale(1.04) rotate(0)}30%,62%{opacity:1;transform:scale(1) rotate(0)}86%,100%{opacity:0;transform:scale(1.28) rotate(6deg)}}
+@keyframes introName{0%,18%{opacity:0;transform:translateY(10px)}34%,62%{opacity:1;transform:translateY(0)}88%,100%{opacity:0;transform:translateY(-5px)}}
+@keyframes homeParticleDrift{from{transform:translate3d(-.7%,0,0)}to{transform:translate3d(.7%,-1.2%,0)}}
+@keyframes homePinPulse{0%,100%{box-shadow:0 0 0 4px rgba(255,141,114,.2),0 0 18px rgba(255,141,114,.5)}50%{box-shadow:0 0 0 8px rgba(255,141,114,.08),0 0 25px rgba(255,141,114,.72)}}
+@keyframes demoAccessRise{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes demoAccessGlow{0%,100%{box-shadow:0 25px 80px rgba(0,0,0,.48),0 0 0 rgba(69,232,206,0)}50%{box-shadow:0 28px 90px rgba(0,0,0,.52),0 0 34px rgba(69,232,206,.12)}}
+.site-intro{position:fixed;inset:0;z-index:1000;display:grid;align-content:center;justify-items:center;gap:14px;background:radial-gradient(ellipse at center,#0e5b36,#02140b 70%);pointer-events:none;animation:introCurtain 1.15s steps(1,end) forwards}
+.site-intro img{width:clamp(112px,20vw,170px);aspect-ratio:1;object-fit:contain;border:1px solid rgba(69,232,206,.25);border-radius:18px;background:#030b07;box-shadow:0 0 0 10px rgba(69,232,206,.08),0 0 70px rgba(142,240,74,.3);animation:introLogo 1.1s cubic-bezier(.2,.75,.25,1) both}
+.site-intro span{color:#f2fff0;font-size:clamp(1rem,3vw,1.35rem);font-weight:800;letter-spacing:.16em;text-transform:uppercase;text-shadow:0 3px 16px rgba(0,0,0,.55);animation:introName 1.1s ease both}
+.leaf{position:fixed;top:0;z-index:1;pointer-events:none;animation:fall linear infinite}
+.hero .logo{animation:float 5s ease-in-out infinite,glow 3s infinite}
+.hero .kicker{animation:pop .9s .1s both}.hero h1{animation:pop .9s .25s both}.hero p{animation:pop .9s .4s both}.hero .row{animation:pop .9s .55s both}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.75,.25,1),border-color .3s,box-shadow .3s}
+.rv.in{opacity:1;transform:none}
+.rv.in.glass:hover{transform:translateY(-8px) scale(1.02)}
+.rv.in.glass.dish-card:hover{transform:translateY(-5px)}
+.btn.main{background:linear-gradient(115deg,#a6ff5c,#e8ffd0 48%,#3fd35a);animation:none}
+.btn.main:hover{filter:brightness(1.06)}
+.feat b,.dish{display:inline-block;animation:float 4s ease-in-out infinite}
+.home-page .home-hero::after{position:absolute;inset:-8%;z-index:0;pointer-events:none;content:"";background-image:radial-gradient(circle,rgba(215,255,221,.8) 1px,transparent 1.8px),radial-gradient(circle,rgba(69,232,206,.72) 1.2px,transparent 2px),radial-gradient(circle,rgba(255,255,255,.62) .8px,transparent 1.6px);background-size:137px 137px,211px 211px,83px 83px;background-position:12px 22px,71px 83px,28px 64px;opacity:.42;animation:homeParticleDrift 24s ease-in-out infinite alternate;will-change:transform}
+.home-map-pin{animation:homePinPulse 2.8s ease-in-out infinite}
+.demo-access-overlay{position:fixed;inset:0;z-index:900;display:grid;place-items:center;overflow:auto;padding:24px;background:rgba(1,13,7,.74);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.demo-access-overlay[hidden]{display:none}
+.demo-access-card{position:relative;width:min(100%,470px);max-height:calc(100svh - 32px);overflow-y:auto;display:grid;justify-items:center;gap:14px;padding:clamp(24px,6vw,42px);border:1px solid rgba(69,232,206,.35);border-radius:28px;background:linear-gradient(145deg,rgba(12,64,44,.97),rgba(3,26,19,.98));text-align:center;animation:demoAccessRise .55s cubic-bezier(.2,.75,.25,1) both,demoAccessGlow 5s ease-in-out 1s infinite}
+.demo-access-logo{width:74px;height:74px;object-fit:contain;border:1px solid rgba(69,232,206,.25);border-radius:18px;background:#030b07;box-shadow:0 0 30px rgba(69,232,206,.16)}
+.demo-access-card .kicker{margin:0;color:#ffd166;font-size:.75rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.demo-access-card h2{margin:0;color:#f2fff0;font-size:clamp(1.55rem,5vw,2rem);line-height:1.12}
+.demo-access-copy,.demo-access-notice{margin:0;color:#c2dfca;font-size:.9rem;line-height:1.55}
+.demo-google-button{width:100%;justify-content:center;border-color:rgba(255,255,255,.24);background:rgba(255,255,255,.08);color:#fff}
+.demo-google-button>span{display:grid;width:24px;height:24px;place-items:center;border-radius:50%;background:#fff;color:#4285f4;font-size:1rem;font-weight:850}
+.demo-access-divider{display:flex;width:100%;align-items:center;gap:12px;color:#a9cbb2;font-size:.78rem}
+.demo-access-divider::before,.demo-access-divider::after{height:1px;flex:1;background:rgba(255,255,255,.15);content:""}
+.demo-login-form{display:grid;width:100%;gap:12px;text-align:left}
+.demo-login-form label{display:grid;gap:6px;color:#d9f0de;font-size:.84rem}
+.demo-login-form input{width:100%;min-height:46px;padding:10px 13px;border:1px solid rgba(255,255,255,.2);border-radius:12px;background:rgba(0,10,5,.45);color:#fff;font:inherit}
+.demo-login-form input:focus{outline:2px solid #45e8ce;outline-offset:2px}
+.demo-login-form .btn{width:100%}
+.demo-guest-button{padding:8px;border:0;background:transparent;color:#b9f58f;font:inherit;font-weight:750;cursor:pointer}
+.demo-guest-button:hover{text-decoration:underline;text-underline-offset:4px}
+.demo-access-notice{padding:10px 12px;border:1px solid rgba(255,209,102,.2);border-radius:12px;background:rgba(255,209,102,.07);font-size:.78rem}
+html.intro-pending body>*:not(.site-intro){visibility:hidden!important}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.site-intro{display:none}.rv{opacity:1;transform:none}}
